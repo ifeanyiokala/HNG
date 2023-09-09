@@ -12,7 +12,24 @@ export class TaskController {
 
     // Get the current UTC time accurate within a +/-2 minute window
     const now = new Date();
-    const utcTime = new Date(now.getTime() - (now.getTimezoneOffset() * 60000)).toISOString();
+    //const utcTime = new Date(now.getTime() - (now.getTimezoneOffset() * 60000)).toISOString();
+    //const currentDate = new Date();
+    //const utcTime = now.toISOString();
+    
+
+    //const now = new Date();
+
+
+
+//const utcTime = (`${year}-${month}-${day}${hours}:${minutes}:${seconds}:${milliseconds}`);
+
+const moment = require('moment');
+
+// Create a Moment object representing the current date and time
+const currentDate = moment();
+
+// Format the date in the desired format
+const utcTime = currentDate.format('YYYY-MM-DDTHH:mm:ss[Z]');
 
     // Construct the response JSON
     const response = {
